@@ -13,7 +13,7 @@ namespace Database_SQL_Music_App
         public string ArtistName { get; set; }
         public int ReleaseYear { get; set; }
         public string ImageURL { get; set; }
-        public string description { get; set; }
+        public string Description { get; set; }
 
         // coming soon: public List<Song> Songs { get; set; } songs in album
     }
