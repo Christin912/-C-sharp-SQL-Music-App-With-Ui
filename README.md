@@ -1,4 +1,4 @@
-# 🚀 Student Management System (C# .NET + SQL)
+# 🚀 Music Storing/Playing Desktop Application (C# .NET + SQL)
 
 A full-stack **.NET Core Web API** project that integrates with **SQL Server** to deliver a reliable, scalable, and production-style backend for managing student records.  
 
