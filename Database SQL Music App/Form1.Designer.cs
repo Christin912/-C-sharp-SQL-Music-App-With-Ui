@@ -32,14 +32,16 @@
             dataGridView1 = new DataGridView();
             button2 = new Button();
             textBox1 = new TextBox();
+            pictureBox1 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // button1
             // 
             button1.Location = new Point(2, 3);
             button1.Name = "button1";
-            button1.Size = new Size(260, 87);
+            button1.Size = new Size(260, 56);
             button1.TabIndex = 0;
             button1.Text = "Load Album";
             button1.UseVisualStyleBackColor = true;
@@ -48,11 +50,12 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(258, 96);
+            dataGridView1.Location = new Point(364, 44);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(722, 344);
+            dataGridView1.Size = new Size(616, 386);
             dataGridView1.TabIndex = 1;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // button2
@@ -72,11 +75,22 @@
             textBox1.Size = new Size(531, 27);
             textBox1.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox1.Location = new Point(9, 71);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(349, 359);
+            pictureBox1.TabIndex = 4;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(992, 442);
+            Controls.Add(pictureBox1);
             Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(dataGridView1);
@@ -85,6 +99,7 @@
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,5 +110,6 @@
         private DataGridView dataGridView1;
         private Button button2;
         private TextBox textBox1;
+        private PictureBox pictureBox1;
     }
 }

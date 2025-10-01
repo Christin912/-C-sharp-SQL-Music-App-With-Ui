@@ -22,7 +22,7 @@ namespace Database_SQL_Music_App
 
             //define the query
             MySqlCommand command = new MySqlCommand
-                ("SELECT * FROM albums", connection);
+                ("SELECT ID, ALBUM_TITLE, ARTIST, YEAR, IMAGE_NAME, DESCRIPTION FROM albums", connection);
             using (MySqlDataReader reader = command.ExecuteReader())
 
             {
@@ -36,20 +36,14 @@ namespace Database_SQL_Music_App
                         ReleaseYear = reader.GetInt32(3),
                         ImageURL = reader.GetString(4),
                         Description = reader.GetString(5)
-
-
-                            
                     };
                     returnThese.Add(a);
                 }
-
-
             }
             connection.Close();
 
             return returnThese;
         }
-
 
         public List<Album> searchTitles(String searchTerm)
         {
@@ -60,9 +54,13 @@ namespace Database_SQL_Music_App
                 (connectionString);
             connection.Open();
 
+            String searchWildPhrase = "%" + searchTerm + "%";
             //define the query
-            MySqlCommand command = new MySqlCommand
-                ("SELECT * FROM albums", connection);
+            MySqlCommand command = new MySqlCommand();
+            command.CommandText = "SELECT ID, ALBUM_TITLE, ARTIST, YEAR, IMAGE_NAME, DESCRIPTION FROM ALBUMS WHERE ALBUM_TITLE LIKE @search";
+            command.Parameters.AddWithValue("@search", searchWildPhrase);
+            command.Connection = connection;
+
             using (MySqlDataReader reader = command.ExecuteReader())
 
             {
@@ -76,27 +74,14 @@ namespace Database_SQL_Music_App
                         ReleaseYear = reader.GetInt32(3),
                         ImageURL = reader.GetString(4),
                         Description = reader.GetString(5)
-
-
-
                     };
                     returnThese.Add(a);
                 }
-
-
             }
             connection.Close();
 
             return returnThese;
         }
-
-
-
-
     }
-
-
-
-
 }
 
