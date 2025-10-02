@@ -82,6 +82,32 @@ namespace Database_SQL_Music_App
 
             return returnThese;
         }
+
+        internal int addOneAlbum(Album album)
+        {
+            MySqlConnection connection = new MySqlConnection
+               (connectionString);
+            connection.Open();
+
+            //define the query
+            MySqlCommand command = new MySqlCommand
+                ("INSERT INTO `albums`(`ALBUM_TITLE`, `ARTIST`, `YEAR`, `IMAGE_NAME`, `DESCRIPTION`)" +
+                " VALUES (@albumtitle, @artist, @year, @imageURL, @description)", connection);
+            command.Parameters.AddWithValue("@albumtitle", album.AlbumName);
+            command.Parameters.AddWithValue("@artist", album.ArtistName);
+            command.Parameters.AddWithValue("@year", album.ReleaseYear);
+            command.Parameters.AddWithValue("@imageURL", album.ImageURL);
+            command.Parameters.AddWithValue("@description", album.Description);
+           
+             int newRows = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            return newRows;
+
+
+
+        }
     }
 }
 

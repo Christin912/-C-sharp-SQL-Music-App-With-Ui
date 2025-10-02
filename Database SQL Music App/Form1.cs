@@ -46,9 +46,7 @@ namespace Database_SQL_Music_App
 
             dataGridView1.DataSource = albumBindingSource;
 
-                  LoadImageWithHeaders("https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg");
-
-
+            LoadImageWithHeaders("https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -79,6 +77,53 @@ namespace Database_SQL_Music_App
             // MessageBox.Show("URL="+ imageURL);
 
             LoadImageWithHeaders(imageURL);
-        }   
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //add new item to database
+            Album album = new Album
+            {
+                AlbumName = txt_albumArtist.Text,
+                ArtistName = txt_albumName.Text,
+                ReleaseYear = int.Parse(txt_albumYear.Text),
+                ImageURL = txt_imageURL.Text,
+                Description = txt_desciption.Text
+            };
+
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+            int result = albumsDAO.addOneAlbum(album);
+            MessageBox.Show(result +" new row(s) inserted");
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            // You can leave this empty or add code if you want something to happen when label3 is clicked
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            // You can leave this empty or add code if you want something to happen when label4 is clicked
+        }
+
+        private void txt_albumArtist_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
