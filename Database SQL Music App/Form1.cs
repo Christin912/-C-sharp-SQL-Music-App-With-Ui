@@ -3,6 +3,7 @@ namespace Database_SQL_Music_App
     public partial class Form1 : Form
     {
         BindingSource albumBindingSource = new BindingSource();
+        BindingSource trackBindingSource = new BindingSource();
 
         public Form1()
         {
@@ -77,6 +78,12 @@ namespace Database_SQL_Music_App
             // MessageBox.Show("URL="+ imageURL);
 
             LoadImageWithHeaders(imageURL);
+
+            AlbumsDAO albumsDAO = new AlbumsDAO();
+            trackBindingSource.DataSource = albumsDAO.getTracksUsingJoin
+                ((int)dataGridView.Rows[rowClicked].Cells[0].Value);
+
+            dataGridView2.DataSource = trackBindingSource;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -107,8 +114,8 @@ namespace Database_SQL_Music_App
             };
 
             AlbumsDAO albumsDAO = new AlbumsDAO();
-            int result = albumsDAO.addOneAlbum(album);
-            MessageBox.Show(result +" new row(s) inserted");
+            int result = albumsDAO.AddOneAlbum(album);
+            MessageBox.Show(result + " new row(s) inserted");
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -122,6 +129,11 @@ namespace Database_SQL_Music_App
         }
 
         private void txt_albumArtist_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tracks_Click(object sender, EventArgs e)
         {
 
         }

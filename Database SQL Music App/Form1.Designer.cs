@@ -45,9 +45,12 @@
             label3 = new Label();
             label2 = new Label();
             label1 = new Label();
+            label6 = new Label();
+            dataGridView2 = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -66,7 +69,7 @@
             dataGridView1.Location = new Point(268, 79);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(609, 336);
+            dataGridView1.Size = new Size(609, 200);
             dataGridView1.TabIndex = 1;
             dataGridView1.CellClick += dataGridView1_CellClick;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -113,7 +116,7 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Location = new Point(2, 69);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(260, 271);
+            groupBox1.Size = new Size(260, 264);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Add Album";
@@ -214,11 +217,32 @@
             label1.Text = "Album Name";
             label1.Click += label1_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(268, 282);
+            label6.Name = "label6";
+            label6.Size = new Size(49, 20);
+            label6.TabIndex = 6;
+            label6.Text = "Tracks";
+            label6.Click += tracks_Click;
+            // 
+            // dataGridView2
+            // 
+            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView2.Location = new Point(268, 305);
+            dataGridView2.Name = "dataGridView2";
+            dataGridView2.RowHeadersWidth = 51;
+            dataGridView2.Size = new Size(609, 185);
+            dataGridView2.TabIndex = 7;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1365, 502);
+            Controls.Add(dataGridView2);
+            Controls.Add(label6);
             Controls.Add(groupBox1);
             Controls.Add(pictureBox1);
             Controls.Add(textBox1);
@@ -232,6 +256,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -255,5 +280,7 @@
         private TextBox txt_albumYear;
         private TextBox txt_albumArtist;
         private Button button3;
+        private Label label6;
+        private DataGridView dataGridView2;
     }
 }
