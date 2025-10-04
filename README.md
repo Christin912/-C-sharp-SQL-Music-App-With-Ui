@@ -37,4 +37,6 @@ StudentManagementSystem/
 │── Migrations/ # EF Core migrations
 │── Tests/ # Unit tests
 
+<img width="703" height="490" alt="image" src="https://github.com/user-attachments/assets/c24fd142-d31d-47b1-b34a-59a3522f1892" />
+
 
