@@ -1,4 +1,5 @@
 using System.Windows.Forms;
+using Microsoft.Web.WebView2.WinForms;
 
 namespace Database_SQL_Music_App
 {
@@ -8,10 +9,18 @@ namespace Database_SQL_Music_App
         BindingSource trackBindingSource = new BindingSource();
 
         List<Album> albums = new List<Album>();
+        private WebView2 webView2;
 
         public Form1()
         {
             InitializeComponent();
+
+            // Initialize WebView2 control
+            webView2 = new WebView2();
+            webView2.Location = new System.Drawing.Point(10, 350);
+            webView2.Size = new System.Drawing.Size(600, 340);
+            this.Controls.Add(webView2);
+            webView2.Visible = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -149,7 +158,7 @@ namespace Database_SQL_Music_App
             //get row number clikced
             int rowClicked = dataGridView2.CurrentRow.Index;
             //MessageBox.Show("Row clicked: " + rowClicked);
-            int trackID = (int) dataGridView2.Rows[rowClicked].Cells[0].Value;
+            int trackID = (int)dataGridView2.Rows[rowClicked].Cells[0].Value;
             MessageBox.Show("ID of track " + trackID);
 
             AlbumsDAO albumsDAO = new AlbumsDAO();
@@ -160,6 +169,40 @@ namespace Database_SQL_Music_App
 
             dataGridView2.DataSource = null;
             albums = albumsDAO.GetAllAlbums();
+
+        }
+
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowClicked = dataGridView2.CurrentRow.Index;
+            Track selectedTrack = trackBindingSource[rowClicked] as Track;
+            if (selectedTrack != null && !string.IsNullOrEmpty(selectedTrack.VideoURL))
+            {
+                // Load YouTube video in WebView2
+                webView2.Source = new Uri(selectedTrack.VideoURL);
+            }
+        }
+
+        private void btnPlayVideo_Click(object sender, EventArgs e)
+        {
+            // Get selected track from dataGridView2
+            if (dataGridView2.CurrentRow != null)
+            {
+                int rowClicked = dataGridView2.CurrentRow.Index;
+                Track selectedTrack = trackBindingSource[rowClicked] as Track;
+                if (selectedTrack != null && !string.IsNullOrEmpty(selectedTrack.VideoURL))
+                {
+                    webView2.Source = new Uri(selectedTrack.VideoURL);
+                }
+                else
+                {
+                    MessageBox.Show("No video URL found for this track.");
+                }
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
 
         }
     }

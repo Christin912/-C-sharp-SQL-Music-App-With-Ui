@@ -48,10 +48,13 @@
             label6 = new Label();
             dataGridView2 = new DataGridView();
             button4 = new Button();
+            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            btnPlayVideo = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -79,7 +82,7 @@
             // 
             button2.Location = new Point(925, 3);
             button2.Name = "button2";
-            button2.Size = new Size(399, 31);
+            button2.Size = new Size(580, 31);
             button2.TabIndex = 2;
             button2.Text = "Search";
             button2.UseVisualStyleBackColor = true;
@@ -95,9 +98,9 @@
             // pictureBox1
             // 
             pictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            pictureBox1.Location = new Point(925, 69);
+            pictureBox1.Location = new Point(933, 277);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(428, 346);
+            pictureBox1.Size = new Size(572, 350);
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
@@ -221,7 +224,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(268, 245);
+            label6.Location = new Point(933, 54);
             label6.Name = "label6";
             label6.Size = new Size(49, 20);
             label6.TabIndex = 6;
@@ -231,15 +234,15 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(268, 268);
+            dataGridView2.Location = new Point(933, 77);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(609, 185);
+            dataGridView2.Size = new Size(580, 165);
             dataGridView2.TabIndex = 7;
             // 
             // button4
             // 
-            button4.Location = new Point(268, 461);
+            button4.Location = new Point(1373, 45);
             button4.Name = "button4";
             button4.Size = new Size(132, 29);
             button4.TabIndex = 8;
@@ -247,11 +250,34 @@
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
+            // webView21
+            // 
+            webView21.AllowExternalDrop = true;
+            webView21.CreationProperties = null;
+            webView21.DefaultBackgroundColor = Color.White;
+            webView21.Location = new Point(268, 277);
+            webView21.Name = "webView21";
+            webView21.Size = new Size(598, 350);
+            webView21.TabIndex = 9;
+            webView21.ZoomFactor = 1D;
+            // 
+            // btnPlayVideo
+            // 
+            btnPlayVideo.Location = new Point(338, 245);
+            btnPlayVideo.Name = "btnPlayVideo";
+            btnPlayVideo.Size = new Size(100, 40);
+            btnPlayVideo.TabIndex = 10;
+            btnPlayVideo.Text = "Play Video";
+            btnPlayVideo.UseVisualStyleBackColor = true;
+            btnPlayVideo.Click += btnPlayVideo_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1365, 502);
+            ClientSize = new Size(1517, 630);
+            Controls.Add(btnPlayVideo);
+            Controls.Add(webView21);
             Controls.Add(button4);
             Controls.Add(dataGridView2);
             Controls.Add(label6);
@@ -269,6 +295,7 @@
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -295,5 +322,7 @@
         private Label label6;
         private DataGridView dataGridView2;
         private Button button4;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webView21;
+        private Button btnPlayVideo;
     }
 }
