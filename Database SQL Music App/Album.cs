@@ -16,5 +16,7 @@ namespace Database_SQL_Music_App
         public string Description { get; set; }
 
         // coming soon: public List<Song> Songs { get; set; } songs in album
+
+        public List<Track> Tracks { get; set; }
     }
 }

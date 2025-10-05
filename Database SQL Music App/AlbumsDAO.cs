@@ -38,6 +38,8 @@ namespace Database_SQL_Music_App
                         ImageURL = reader.GetString(4),
                         Description = reader.GetString(5)
                     };
+
+                    a.Tracks = getTracksForAlbum(a.ID); //we calling again this isn't ideal cause two calls to db(we can index to optimize)
                     returnThese.Add(a);
                 }
             }
@@ -173,6 +175,24 @@ namespace Database_SQL_Music_App
             connection.Close();
 
             return returnThese;
+        }
+
+        internal int deleteTrack(int trackID)
+        {
+            MySqlConnection connection = new MySqlConnection
+              (connectionString);
+            connection.Open();
+
+            //define the query
+            MySqlCommand command = new MySqlCommand
+                ("DELETE FROM `tracks` WHERE `tracks`.`ID` = @trackID;", connection);
+            command.Parameters.AddWithValue("@trackID", trackID);
+
+
+            int result = command.ExecuteNonQuery();
+            connection.Close();
+
+            return result;
         }
     }
 }

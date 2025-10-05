@@ -47,6 +47,7 @@
             label1 = new Label();
             label6 = new Label();
             dataGridView2 = new DataGridView();
+            button4 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             groupBox1.SuspendLayout();
@@ -66,7 +67,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(268, 79);
+            dataGridView1.Location = new Point(268, 42);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(609, 200);
@@ -220,7 +221,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(268, 282);
+            label6.Location = new Point(268, 245);
             label6.Name = "label6";
             label6.Size = new Size(49, 20);
             label6.TabIndex = 6;
@@ -230,17 +231,28 @@
             // dataGridView2
             // 
             dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(268, 305);
+            dataGridView2.Location = new Point(268, 268);
             dataGridView2.Name = "dataGridView2";
             dataGridView2.RowHeadersWidth = 51;
             dataGridView2.Size = new Size(609, 185);
             dataGridView2.TabIndex = 7;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(268, 461);
+            button4.Name = "button4";
+            button4.Size = new Size(132, 29);
+            button4.TabIndex = 8;
+            button4.Text = "Delete Selected";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1365, 502);
+            Controls.Add(button4);
             Controls.Add(dataGridView2);
             Controls.Add(label6);
             Controls.Add(groupBox1);
@@ -282,5 +294,6 @@
         private Button button3;
         private Label label6;
         private DataGridView dataGridView2;
+        private Button button4;
     }
 }
